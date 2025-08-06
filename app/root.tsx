@@ -9,6 +9,9 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import { SessionProvider } from "./context/SessionContext";
+import { UIProvider, useUI } from "./context/UIContext";
+import { Modal } from "./components/modals/Modal";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -25,15 +28,16 @@ export const links: Route.LinksFunction = () => [
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="dark">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
       </head>
-      <body>
-        {children}
+      <body className="bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300">
+        <UIProvider>{children}</UIProvider>
+
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -42,7 +46,21 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  const { modal, closeModal } = useUI();
+  return (
+    <SessionProvider>
+      <Outlet />
+      {modal && (
+        <Modal
+          title={modal?.title}
+          onClose={closeModal}
+          bodyModal={modal.bodyModal}
+          variant={modal.variant}
+          footer={modal.footer}
+        />
+      )}
+    </SessionProvider>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
