@@ -2,14 +2,14 @@ import type { JSX, ButtonHTMLAttributes, AnchorHTMLAttributes } from "react";
 import { NavLink } from "react-router";
 export const variants = {
   primary:
-    "bg-primary hover:bg-primary-light transition border-none text-white dark:text-gray-900",
+    "bg-primary hover:bg-primary-light transition border-none text-white dark:text-slate-900",
   success:
-    "bg-success hover:bg-success-light transition border-none text-white dark:text-gray-900",
+    "bg-success hover:bg-success-light transition border-none text-white dark:text-slate-900",
   error:
-    "bg-error hover:bg-error-light transition border-none text-white dark:text-gray-900",
+    "bg-error hover:bg-error-light transition border-none text-white dark:text-slate-900",
 };
 const basesClass =
-  "border cursor-pointer font-medium disabled:cursor-not-allowed disabled:bg-gray-400 disabled:border-gray-400 disabled:hover:text-zinc-800";
+  "border cursor-pointer font-medium disabled:cursor-not-allowed disabled:bg-slate-400 disabled:border-slate-400 disabled:hover:text-zinc-800";
 const sizes = {
   md: "text-sm py-2 px-4 rounded-md",
 };

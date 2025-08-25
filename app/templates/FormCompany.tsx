@@ -4,13 +4,12 @@ import { Button } from "~/components/Buttons";
 import { useForm } from "react-hook-form";
 import {
   companyAPI,
-  profileAPI,
-  type CompanyInsertType,
-} from "lib/crud";
+  profileAPI} from "lib/crud";
 import { useNavigate } from "react-router";
 import { useUI } from "~/context/UIContext";
 import { useSession } from "~/context/SessionContext";
 import { useProfileRealTime } from "lib/realTime";
+import type { CompanyType } from "lib/dataTypes";
 export default function FormCompany({ mode }: { mode: "create" }) {
     useProfileRealTime()
   const navigate = useNavigate();
@@ -20,7 +19,7 @@ export default function FormCompany({ mode }: { mode: "create" }) {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<CompanyInsertType>({
+  } = useForm<CompanyType>({
     defaultValues: {
       nombre: "",
       cuit: "",
@@ -28,7 +27,7 @@ export default function FormCompany({ mode }: { mode: "create" }) {
       user_id: user?.id,
     },
   });
-  const onSubmit = async (formData: CompanyInsertType) => {
+  const onSubmit = async (formData: CompanyType | Omit<CompanyType, "id" | "created_at">) => {
     if (!user || !profile) throw new Error("no hay usuario");
     showModal({
       variant: "loading",

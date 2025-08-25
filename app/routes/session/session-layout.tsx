@@ -5,6 +5,8 @@ import ProtectedRoute from "~/components/auth/ProtectedRoute";
 import { useEffect } from "react";
 import { Card } from "~/components/Card";
 import { ButtonLink } from "~/components/Buttons";
+import { supabase } from "lib/supabaseClient";
+import { DataProvider } from "~/context/DataContext";
 type MenuLinkProps = {
   to: string;
   children: React.ReactNode;
@@ -15,8 +17,8 @@ export default function LayoutSession() {
     return (
       <NavLink
         className={({ isActive }) =>
-          `block rounded-lg px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-primary-light ${
-            isActive ? "bg-gray-200 dark:bg-gray-800 text-primary-light" : ""
+          `block rounded-lg px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 hover:text-primary-light ${
+            isActive ? "bg-slate-200 dark:bg-slate-800 text-primary-light" : ""
           }`
         }
         to={to}
@@ -29,9 +31,9 @@ export default function LayoutSession() {
     <ProtectedRoute>
       <div className="flex h-screen">
         {/* Sidebar */}
-        <div className="flex h-screen flex-col justify-between border-e border-border bg-white dark:bg-gray-900">
+        <div className="flex h-screen flex-col justify-between border-e border-border bg-white dark:bg-slate-900">
           <div className="px-4 py-6">
-            <span className="grid h-10 w-32 place-content-center rounded-lg bg-gray-200 dark:bg-gray-800 text-xs">
+            <span className="grid h-10 w-32 place-content-center rounded-lg bg-slate-200 dark:bg-slate-800 text-xs">
               <h1 className="text-center text-xl font-semibold">
                 Stock<span className="text-primary">AR</span>
               </h1>
@@ -52,13 +54,16 @@ export default function LayoutSession() {
               <li>
                 <MenuLink to="/account">Cuenta</MenuLink>
               </li>
+              <li>
+                <MenuLink to="/settings">Configuraciones</MenuLink>
+              </li>
             </ul>
           </div>
 
           {/* <div className="sticky inset-x-0 bottom-0 border-t border-border">
             <a
               href="#"
-              className="flex items-center gap-2 bg-gray-900 p-4 hover:bg-gray-50"
+              className="flex items-center gap-2 bg-slate-900 p-4 hover:bg-slate-50"
             >
               <img
                 alt=""
@@ -80,7 +85,9 @@ export default function LayoutSession() {
         {/* Main content */}
         <main className="relative flex-1 px-6 py-8 md:px-10 overflow-y-auto">
           {profile && profile.empresa_id ? (
-            <Outlet />
+            <DataProvider>
+              <Outlet />
+            </DataProvider>
           ) : (
             <Card>
               <h2 className="text-lg font-bold">

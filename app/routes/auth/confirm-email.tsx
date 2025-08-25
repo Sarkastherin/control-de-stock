@@ -26,7 +26,7 @@ export default function ConfirmEmail() {
             Te hemos enviado un correo con un enlace de verificación. Haz clic
             en ese enlace para activar tu cuenta.
           </p>
-          <p className="mt-6 text-sm text-gray-500">
+          <p className="mt-6 text-sm text-slate-500">
             ¿Ya verificaste? <br />
             <span className="font-medium text-primary-light">
               Recarga esta página

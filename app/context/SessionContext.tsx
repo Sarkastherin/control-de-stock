@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import type { Session, User } from "@supabase/supabase-js";
 import { supabase } from "lib/supabaseClient";
-import { useProfile } from "./ProfileContext";
 
 type SessionContextType = {
   user: User | null;

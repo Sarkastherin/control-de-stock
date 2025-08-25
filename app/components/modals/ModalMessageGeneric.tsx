@@ -1,14 +1,6 @@
 import type React from "react";
-import { Button, variants } from "../Buttons";
-type ButtonsFooter = {
-  label: string;
-  handleOnClick: () => void;
-  variant?:keyof typeof variants
-};
-type FooterModal = {
-  btnPrimary?: ButtonsFooter;
-  btnSecondary?: ButtonsFooter;
-};
+import { Button } from "../Buttons";
+import type { FooterModal } from "./ModalComponent";
 
 export type ModalProps = {
   title: string;
@@ -31,11 +23,11 @@ export const Modal = ({
       aria-modal="true"
       aria-labelledby="modalTitle"
     >
-      <div className="w-full max-w-md rounded-lg bg-white p-6 shadow-lg dark:bg-gray-900">
+      <div className="w-full max-w-md rounded-lg bg-white p-6 shadow-lg dark:bg-slate-900">
         <div className="flex items-start justify-between">
           <h2
             id="modalTitle"
-            className="text-lg font-semibold text-gray-900 sm:text-xl dark:text-white"
+            className="text-lg font-semibold text-slate-900 sm:text-xl dark:text-white"
           >
             {title}
           </h2>
@@ -43,7 +35,7 @@ export const Modal = ({
             <button
               type="button"
               onClick={onClose}
-              className="-me-4 -mt-4 rounded-full p-2 text-gray-400 transition-colors hover:bg-gray-50 hover:text-gray-600 focus:outline-none dark:text-gray-500 dark:hover:bg-gray-800 dark:hover:text-red-400 cursor-pointer"
+              className="-me-4 -mt-4 rounded-full p-2 text-slate-400 transition-colors hover:bg-slate-50 hover:text-slate-600 focus:outline-none dark:text-slate-500 dark:hover:bg-slate-800 dark:hover:text-red-400 cursor-pointer"
               aria-label="Close"
             >
               <svg
@@ -71,7 +63,7 @@ export const Modal = ({
               <button
                 type="button"
                 onClick={footer.btnSecondary.handleOnClick}
-                className="rounded bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
+                className="rounded bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
               >{footer.btnSecondary.label}</button>
             )}
             {footer.btnPrimary && (

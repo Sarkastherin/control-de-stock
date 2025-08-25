@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { EyeIcon, PencilIcon } from "@heroicons/react/24/outline";
 import { Button } from "./Buttons";
 type FooterFormsProps = {
@@ -12,13 +11,13 @@ export default function FooterForms({
   onToggleEdit,
 }: FooterFormsProps) {
   return (
-    <div className="absolute left-0 bottom-0 dark:bg-gray-900 bg-gray-300 shadow-lg shadow-gray-900 dark:shadow-gray-500 min-w-full">
+    <div className="absolute left-0 bottom-0 dark:bg-slate-900 bg-slate-300 shadow-lg shadow-slate-900 dark:shadow-slate-500 min-w-full">
       <div className="px-6 md:px-10 py-3 flex justify-between">
         {!isNew && (
           <label
             htmlFor="ChangeViewToEdit"
             className={
-              "relative block h-8 w-14 rounded-full bg-gray-400 transition-colors [-webkit-tap-highlight-color:_transparent] has-checked:bg-lime-500 dark:bg-gray-600 dark:has-checked:bg-lime-600"
+              "relative block h-8 w-14 rounded-full bg-slate-400 transition-colors [-webkit-tap-highlight-color:_transparent] has-checked:bg-lime-500 dark:bg-slate-600 dark:has-checked:bg-lime-600"
             }
           >
             <input
@@ -29,7 +28,7 @@ export default function FooterForms({
               onChange={onToggleEdit}
             />
 
-            <span className="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block dark:bg-zinc-900 dark:text-gray-200">
+            <span className="absolute inset-y-0 start-0 m-1 grid size-6 place-content-center rounded-full bg-white transition-[inset-inline-start] peer-checked:start-6 peer-checked:*:first:hidden *:last:hidden peer-checked:*:last:block dark:bg-zinc-900 dark:text-slate-200">
               <EyeIcon className="size-4" />
               <PencilIcon className="size-4" />
             </span>

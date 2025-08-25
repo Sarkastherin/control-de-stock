@@ -1,27 +1,23 @@
 import { createCrud } from "./crudFactory";
-type CommonTableType = { id: string; create_at: string };
-export type CompanyInsertType = {
-  nombre: string;
-  cuit?: string;
-  web_page?: string;
-  user_id: string;
+import type { UnitsType, CompanyType, FamiliesType } from "./dataTypes";
+type CommonTableType = {
+  id: string;
+  create_at: string;
 };
-type CompanyFullType = CompanyInsertType & CommonTableType;
 export type ProfileInsertType = {
   auth_user_id: string;
   empresa_id?: string;
-  empresas?: CompanyFullType
+  empresas?: CompanyType;
   nombre?: string;
   apellido?: string;
   email: string;
   rol: "owner";
   activo: boolean;
 };
-export type ProfileFullType = ProfileInsertType & CommonTableType;
+export type ProfileType = ProfileInsertType & CommonTableType;
 
-export const companyAPI = createCrud<CompanyFullType, CompanyInsertType>(
-  "empresas"
-);
-export const profileAPI = createCrud<ProfileFullType, ProfileInsertType>(
-  "usuarios"
-);
+export const companyAPI = createCrud<CompanyType>("empresas");
+export const profileAPI = createCrud<ProfileType>("usuarios");
+
+export const unitsAPI = createCrud<UnitsType>("unidades_medidas");
+export const familiesAPI = createCrud<FamiliesType>("familias");

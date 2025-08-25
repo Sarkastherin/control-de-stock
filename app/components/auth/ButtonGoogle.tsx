@@ -17,7 +17,7 @@ export default function ButtonGoogle({ ...buttonProps }: ButtonGoogleProps) {
   };
   return (
     <button
-      className="w-full flex items-center justify-center gap-x-3 py-2.5 border border-border rounded text-sm font-medium dark:hover:bg-gray-600/30 duration-150 active:bg-gray-700 cursor-pointer"
+      className="w-full flex items-center justify-center gap-x-3 py-2.5 border border-border rounded text-sm font-medium dark:hover:bg-slate-600/30 duration-150 active:bg-slate-700 cursor-pointer"
       {...buttonProps}
       onClick={handleGoogleAuth}
     >

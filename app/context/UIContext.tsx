@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
-import type { ModalProps } from "~/components/modals/Modal";
+import type { ModalProps } from "~/components/modals/ModalMessageGeneric";
 
 type UIContextType = {
     modal: ModalTypes | null;

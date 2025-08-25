@@ -11,7 +11,7 @@ import type { Route } from "./+types/root";
 import "./app.css";
 import { SessionProvider } from "./context/SessionContext";
 import { UIProvider, useUI } from "./context/UIContext";
-import { Modal } from "./components/modals/Modal";
+import { Modal } from "./components/modals/ModalMessageGeneric";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -35,7 +35,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300">
+      <body className="bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-300">
         <UIProvider>{children}</UIProvider>
 
         <ScrollRestoration />

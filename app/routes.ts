@@ -18,6 +18,7 @@ export default [
     route("products", "routes/session/products/products.tsx"),
     route("stock-movement", "routes/session/stock-movement.tsx"),
     route("account", "routes/session/account.tsx"),
+    route("settings", "routes/session/settings/settings.tsx"),
   ]),
   route("create-company","routes/session/create-company.tsx")
 ] satisfies RouteConfig;

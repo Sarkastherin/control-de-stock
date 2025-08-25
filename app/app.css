@@ -6,8 +6,8 @@
   --color-primary: var(--color-blue-700);
   --color-primary-light: var(--color-blue-600);
   --color-primary-dark: var(--color-blue-800);
-  --color-border: var(--color-gray-300);
-  --color-text-secondary: var(--color-gray-600);
+  --color-border: var(--color-slate-300);
+  --color-text-secondary: var(--color-slate-600);
   /* success */
   --color-success: var(--color-green-600);
   --color-success-light: var(--color-green-500);
@@ -22,8 +22,8 @@
     @variant dark {
       --color-primary: var(--color-blue-500); /* blue-500 */
       --color-primary-light: var(--color-blue-400); /* blue-400 */
-      --color-border: var(--color-gray-700); /* gray-700 */
-      --color-text-secondary: var(--color-gray-500);
+      --color-border: var(--color-slate-700); /* gray-700 */
+      --color-text-secondary: var(--color-slate-500);
       /* success */
       --color-success: var(--color-green-500);
       --color-success-light: var(--color-green-400);
